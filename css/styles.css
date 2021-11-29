@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700&display=swap');
+
+body{
+	font-family: 'Rubik', sans-serif;
+	font-weight: 300;
+}
+.intro{
+	background-image: url('../img/intro-bg.png');
+	background-repeat: no-repeat;
+	height: 80vh;
+	background-size: cover;
+}
+.nav-header{
+	font-size: 20px;
+	line-height: 140%;
+	letter-spacing: 0.2em;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+.main-typography-container{
+	padding-top: 60px;
+	padding-bottom: 120px;
+}
+.main-typography{
+	max-height: 340px;
+	position: relative;
+	margin-left: -20px;
+}
+.btn{
+	padding: 25px;
+	height: 72px;
+	transition: all 0.1s ease-out;
+}
+a{
+	text-decoration: none;
+	transition: all 0.1s ease-out;
+}
+.btn:hover, a:hover{
+	opacity: 0.7;
+}
+.btn-main{
+	background: #fff;
+	font-size: 21px;
+	color: #222;
+	border-radius: 8px;
+	display: inline-block;
+	margin: 20px 0px;
+	font-weight: 600;
+	cursor: pointer;
+	float: left;
+}
+.btn-ghost{
+	background: rgba(255,255,255,0.2);
+	font-size: 21px;
+	color: #fff;
+	border-radius: 8px;
+	display: inline-block;
+	margin: 20px 0px;
+	font-weight: 600;
+	cursor: pointer;
+	float: left;
+	padding-top: 12px;
+	margin-left: 24px;
+}
+.btn-ghost img{
+	position: relative;
+	top: 8px;
+	height: 32px;
+	margin-right: 4px;
+}
+.live-stream{
+	background: #111;
+}
+.section-header-img{
+	height: 70px;
+}
+.section-desc{
+	font-size: 20px;
+	line-height: 155%;
+	/* or 31px */
+	color: #FFFFFF;
+	opacity: 0.8;
+}
+.yt-preview-img{
+	width: 100%;
+	/*margin-top: 20px;*/
+}
+.section{
+	padding: 100px 0px;
+}
+.center{
+	text-align: center;
+}
+.wish-card{
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	border-radius: 16px;
+	filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.04));
+	padding: 25px;
+	margin-bottom: 30px;
+}
+.wishes-container{
+	margin-top: 50px;
+}
+.card-desc{
+	font-size: 18px;
+	line-height: 160%;
+	color: #333;
+	margin: 0px 0px 30px 0px;
+}
+.card-header{
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 140%;
+	color: #333;
+	margin: 0px 0px 0px 0px;
+}
+.footer{
+	text-align: center;
+	padding: 0px 0px 120px 0px;
+}
+.footer img{
+	height: 160px;
+}
+.timeline{
+	margin-top: 50px;
+	min-height: 300px;
+	position: relative;
+}
+.timeline img{
+	width: 740px;
+	display: block;
+	margin: 0 auto;
+}
+.splide{
+	margin-top: 50px;
+}
+.splide__track {
+    border-radius: 16px;
+}
+.gallery{
+	padding-bottom: 30px;
+}
+/*.timeline:before{
+	content: '';
+	border-left: dotted 6px #ccc;
+	width: 0px;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.timeline .item{
+    position: relative;
+    width: 810px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.timeline .item .images img{
+	height: 240px;
+	margin-left: 60px;
+}
+.item.mt50{
+	margin-top: 50px;
+}*/
+
+@media(max-width: 800px){
+	.main-typography-container{
+		display: none;
+	}
+	.timeline-web{
+		display: none !important;
+	}
+	.section-header-img {
+    	height: 44px;
+	}
+	.splide__slide img {
+    	height: 240px;
+	}
+	.card-desc {
+    	font-size: 16px;
+	}
+	.card-header {
+    	font-size: 16px;
+	}
+	.wish-card{
+		margin-bottom: 20px;
+	}
+	.wishes-container, .splide {
+    	margin-top: 20px;
+	}
+	.section {
+    	padding: 30px 10px;
+	}
+	.section-desc {
+    	font-size: 16px;
+    	line-height: 160%;
+    	margin-bottom: 25px;
+	}
+	.intro{
+		height: auto;
+		background: none;
+	}
+	.intro-web{
+		display: none;
+	}
+	.intro-mob img{
+		width: 100%;
+		display: block;
+	}
+	.intro-cta-container{
+		background: #111;
+		padding: 0px 30px 30px 30px;
+	    margin-top: -20px;
+	}
+	.intro-cta-container .btn{
+		display: block;
+		padding: 20px;
+		width: 100%;
+		float: none;
+		height: auto;
+		font-size: 18px;
+		text-align: center;
+	}
+	.footer img {
+    	height: 100px;
+	}
+	.splide__track {
+    	border-radius: 10px;
+	}
+	.timeline-mob{
+		width: 100% !important;
+		display: block !important;
+	}
+	.timeline{
+		margin: 0px -25px;
+	}
+}
+
+@media(min-width: 800px){
+	.intro-mob{
+		display: none;
+	}
+	.timeline-mob{
+		display: none !important;
+	}
+}
