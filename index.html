@@ -23,7 +23,7 @@
 					<img src="img/main-typography.png" class="main-typography">
 				</div>
 				<div class="col-md-12">
-					<a class="btn btn-main">Post a Wish</a>
+					<a class="btn btn-main" onclick="toggleWishesModal(true)">Post a Wish</a>
 					<a class="btn btn-ghost" href="https://wa.me/919567175630" target="_blank">
 						<img src="img/wa-logo.png">
 						Wish on WhatsApp
@@ -157,80 +157,186 @@
 			</div>
 		</div>
 	</section>
-	<section class="section wall-of-wishes">
+	<section class="section wall-of-wishes" id="wishes-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 center">
 					<img src="img/wishes-header.png" class="section-header-img">
 				</div>
 			</div>
-			<div class="row wishes-container">
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="wish-card">
-						<p class="card-desc">Thee minnal thilaangi, Kaattum koolum thudaangi, Naadinaake kaavalaakum, Veeraan mannil irangi!</p>
-						<h6 class="card-header">Minnal Murali</h6>
-					</div>
-				</div>
+			<div class="row wishes-container grid">
+				
 			</div>
 		</div>
 	</section>
 	<section class="footer">
 		<img src="img/footer.svg">
 	</section>
+
+
+
+
+
+  <section class="modal" id="wishes-modal" style="display: none;">
+    <div class="modal-overlay"></div>
+    <div class="modal-content animated fadeInUp">
+      <a onclick="toggleWishesModal(false)" class="modal-close-btn">
+        <svg viewPort="0 0 20 20" style="height: 20px; width: 20px;" version="1.1"
+             xmlns="http://www.w3.org/2000/svg">
+            <line x1="1" y1="13" 
+                  x2="13" y2="1" 
+                  stroke="black" 
+                  stroke-width="2"/>
+            <line x1="1" y1="1" 
+                  x2="13" y2="13" 
+                  stroke="black" 
+                  stroke-width="2"/>
+        </svg>
+      </a>
+      <h2 class="person-bio-header" id="wish-modal-normal-header">Wish the couple</h2>
+      <h2 class="person-bio-header" id="wish-modal-success-header" style="display: none;">Wish posted</h2>
+      <div id="wish-modal-normal">
+        <p class="person-bio-desc alert-message" style="display: none;" id="wish-error-alert">Please fill up all the fields to continue.</p>
+        <p class="person-bio-desc" style="margin-bottom: 10px;">Your name</p>
+        <input type="text" class="form-field" name="" autofocus="true" placeholder="Ex: Bruce Wayne" id="wishname" style="margin-bottom: 30px;">
+        <p class="person-bio-desc" style="margin-bottom: 10px;">Any words for the couple? Share them here, we'll put it up on the wall of wishes section.</p>
+        <textarea id="wishmessage" class="form-field" rows="7" placeholder="Start typing here..."></textarea>
+        <button class="primary-cta cta-full-width" id="post-wish-cta">
+          <span id="post-text-normal">Post wish</span>
+        </button>
+      </div>
+      <div id="wish-modal-success" style="display: none;">
+      	<div class="row">
+      		<div class="col-sm-8">
+		        <p class="person-bio-desc">Your wish is successfully posted. Head to the wall of wishes to see more.</p>
+      		</div>
+      		<div class="col-sm-4">
+      			<img src="img/heart.gif">
+      		</div>
+      	</div>
+        <button class="primary-cta cta-full-width" onclick="scrollToWishesSection()">
+          View all wishes
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/splide.js"></script>
+	<script type="text/javascript" src="js/airtable.browser.js"></script>
+	<script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
 	<script>
 	  document.addEventListener( 'DOMContentLoaded', function() {
 	    var splide = new Splide( '.splide' );
-	    splide.mount();
+	    splide.mount();      
+	    retrieveData();
 	  } );
 	</script>
+
+	<script type="text/javascript">
+
+		var AIRTABLE_API_KEY = "keyVurjSAkWn1yyBB";
+		var AIRTABLE_BASE_ID = "appal0BuYUKMxAyr2";
+		var Airtable = require('airtable');
+		var base = new Airtable({apiKey: AIRTABLE_API_KEY}).base(AIRTABLE_BASE_ID);
+		var $wishes = [];
+
+		$("#post-wish-cta").click(() => {
+			var $wishname = $("#wishname").val();
+			var $wishmessage = $("#wishmessage").val();
+
+			if ($wishname.length>0 && $wishmessage.length>0) {
+				$("#post-text-normal").text("Posting, please wait...");
+				base('NeepthaVivek').create([
+				  {
+				    "fields": {
+				    	"Name": $wishname,
+						"Message": $wishmessage,
+				    }
+				  },
+				], function(err, records) {
+				  if (err) {
+				    console.error(err);
+				    return;
+				  }
+				  records.forEach(function (record) {
+					$("#wish-modal-normal").fadeOut("fast", ()=>{
+			            $("#wish-modal-success").fadeIn("fast");
+			        });
+				  });
+				});
+			} else {
+				$("#normal-text").fadeOut(100, ()=> {
+				   	$("#error-text-2").fadeIn(100);
+				});
+			}
+		});
+
+	    function toggleWishesModal(state){
+	      if(state==true){
+	        $('body').addClass('overflow-hidden');
+	        $("#wishes-modal").fadeIn("fast");
+	      } else {
+	        $('body').removeClass('overflow-hidden');
+	        $("#wish-error-alert").fadeOut();
+	        $("#wishes-modal").fadeOut("fast");
+	      }
+	    }
+
+	    function retrieveData(){
+    		// $(".wishes-container").empty();
+	    	base('NeepthaVivek').select({
+			    maxRecords: 100,
+			    view: "Grid view"
+			}).eachPage(function page(records, fetchNextPage) {
+			    records.forEach((record)=>{
+			    	if(record.fields['Message'] && record.fields['Status']=="Valid"){
+			    		var name = record.fields['Name'];
+				    	var message = record.fields['Message'];
+				    	var wish = {
+				    		'name': name,
+				    		'message': message,
+				    	}
+				    	$wishes.push(wish);
+				    	$(".wishes-container").append(`
+				    		<div class="grid-item col-md-4">
+								<div class="wish-card">
+									<p class="card-desc">` + wish.message + `</p>
+									<h6 class="card-header">` + wish.name + `</h6>
+								</div>
+							</div>
+				    	`);
+				    	console.log($wishes);
+			    	}
+			    });
+			    fetchNextPage();
+			    $('.grid').masonry({
+				  itemSelector: '.grid-item',
+				});
+
+			}, function done(err) {
+			    if (err) { console.error(err); return; }
+			});
+	    }
+
+	    function scrollToWishesSection(){
+	      toggleWishesModal(false);
+	      retrieveData();
+	      $('.grid').masonry({
+				  itemSelector: '.grid-item',
+				});
+	      $([document.documentElement, document.body]).animate({
+	        scrollTop: $("#wishes-section").offset().top - 50
+	      }, 1000);
+	    }
+
+	</script>
+
+
+
 </body>
 </html>
