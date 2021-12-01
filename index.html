@@ -312,7 +312,7 @@
 			    view: "Grid view"
 			}).eachPage(function page(records, fetchNextPage) {
 			    records.forEach((record)=>{
-			    	if(record.fields['Message'] && record.fields['Status']=="Valid"){
+			    	if(record.fields['Message'] && record.fields['Status']!="Not valid"){
 			    		var name = record.fields['Name'];
 				    	var message = record.fields['Message'];
 				    	var wish = {
