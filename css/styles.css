@@ -7,7 +7,7 @@ body{
 .intro{
 	background-image: url('../img/intro-bg.png');
 	background-repeat: no-repeat;
-	height: 80vh;
+	height: 90vh;
 	background-size: cover;
 }
 .nav-header{
@@ -18,7 +18,7 @@ body{
 	text-transform: uppercase;
 }
 .main-typography-container{
-	padding-top: 60px;
+	padding-top: 50px;
 	padding-bottom: 120px;
 }
 .main-typography{
